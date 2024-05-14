@@ -1,19 +1,22 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import 'react-native-gesture-handler';
+import 'react-native-reanimated'
+import { StyleSheet, View, Text} from 'react-native';
+import SV_Nav from './src/screen/SV_Nav';
+import {Provider} from 'react-redux';
+import {store} from './src/redux/store';
+import LoadingIndicator from './src/components/LoadingIndicator';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Provider store={store}>
+      <SV_Nav></SV_Nav>
+      {/* <LoadingIndicator size={100}/> */}
+    </Provider>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
   },
